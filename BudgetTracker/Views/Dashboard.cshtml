@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">📊 Dashboard</h2>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Message"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h5>💸 Expenses</h5>
+                <p>Manage and view your daily expenses.</p>
+                <a class="btn btn-outline-primary" href="#">Go to Expenses</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h5>📅 Budgets</h5>
+                <p>Set and track your monthly budget limits.</p>
+                <a class="btn btn-outline-primary" href="#">Go to Budgets</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h5>📈 Reports</h5>
+                <p>Generate summaries and visual reports of your spending.</p>
+                <a class="btn btn-outline-primary" href="#">Go to Reports</a>
+            </div>
+        </div>
+    </div>
+</div>
+

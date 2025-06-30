@@ -1,0 +1,13 @@
+﻿@model ExpenseTracker.Models.Budget
+@{
+    ViewData["Title"] = "Add Budget";
+    ViewData["Action"] = "Create";
+}
+
+<div class="container mt-5">
+    <h2>Add Budget</h2>
+    @await Html.PartialAsync("BudgetForm", Model)
+</div>
+
+
+   

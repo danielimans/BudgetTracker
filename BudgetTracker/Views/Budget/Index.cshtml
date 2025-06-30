@@ -1,0 +1,62 @@
+﻿@model List<ExpenseTracker.Controllers.BudgetStatusViewModel>
+@{
+    ViewData["Title"] = "Budget List";
+}
+
+<div class="container mt-5">
+    <h2>📅 Budget List</h2>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">@TempData["Message"]</div>
+    }
+
+    <div class="d-flex justify-content-between mb-3">
+        <a class="btn btn-outline-secondary" asp-controller="Home" asp-action="Dashboard">⬅ Back to Dashboard</a>
+        <a class="btn btn-success" asp-action="Create">+ Add Budget</a>
+    </div>
+
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Month</th>
+                <th>Type</th>
+                <th>Amount (RM)</th>
+                <th>Spent (RM)</th>
+                <th>Remaining (RM)</th>
+                <th>Status</th>
+                <th>Notes</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Budget.Month</td>
+                    <td>@item.Budget.Type</td>
+                    <td>@item.Budget.Amount.ToString("F2")</td>
+                    <td>@item.TotalSpent.ToString("F2")</td>
+                    <td>@item.Remaining.ToString("F2")</td>
+                    <td>
+                        @if (item.IsOverBudget)
+                        {
+                            <span class="badge bg-danger">Over Budget</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-success">Within Budget</span>
+                        }
+                    </td>
+                    <td>@item.Budget.Notes</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Budget.Id" class="btn btn-sm btn-warning">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.Budget.Id" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
