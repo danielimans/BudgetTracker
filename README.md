@@ -31,7 +31,7 @@ An ASP.NET Core MVC application for tracking daily expenses, setting monthly/wee
 
 | Dashboard | Expense Report |
 |-----------|----------------|
-| ![Dashboard](screenshots/dashboard.PNG) | ![Report](screenshots/report.PNG) |
+| ![Dashboard](BudgetTracker/screenshots/dashboard.PNG) | ![Report](BudgetTracker/screenshots/report.PNG) |
 
 ---
 
